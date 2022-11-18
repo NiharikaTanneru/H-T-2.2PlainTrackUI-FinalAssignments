@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Three Cards using Html5 and css3</title>
+    <style>
+      * {
+        padding: 0;
+      }
+
+      .container {
+        width: 680px;
+        height: auto;
+        margin: auto;
+        margin-top: 30px;
+        background-color: rgb(194, 241, 227);
+        padding: 60px;
+        border: 2px dotted black;
+        border-radius: 20px;
+      }
+
+      h1,
+      h4,
+      .heading-p {
+        text-align: center;
+      }
+
+      h4 {
+        text-shadow: 2px 2px 2px green;
+      }
+      .heading-p {
+        color: rgb(163, 155, 155);
+      }
+
+      .card-container {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .card {
+        margin: 15px;
+        border-radius: 15px;
+        position: relative;
+      }
+
+      .card-content {
+        background-color: white;
+        width: 160px;
+        border-top-right-radius: 12px;
+        position: absolute;
+        bottom: 4px;
+        left: 2px;
+      }
+
+      .card-content p {
+        padding: 0;
+        color: rgb(163, 155, 155);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h4>THE MOST POWERFUL THEME ON EARTH</h4>
+      <h1>We are a team of expert designers</h1>
+      <p class="heading-p">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+        recusandae molestiae quia velit nobis, sapiente enim quod voluptas culpa
+        qui veniam?
+      </p>
+
+      <div class="card-container">
+        <div class="card">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtJUtf9Nl-15GBUfeSOXsQ89vASdJLoioZA1Sx6GmWOVPabYTvOYW09-jw9hIOoT-nAdM&usqp=CAU"
+            alt="ceo"
+          />
+          <div class="card-content">
+            <h3>---Della Wide</h3>
+            <p>Chief Executive Officer</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFFfgfcJlrxaLCfZXVLLzPfaKxvavmNnU3nr4Vz7oC38O8S5mmShC-oLdu7zNuM_lTSJ0&usqp=CAU"
+            alt="vp"
+          />
+          <div class="card-content">
+            <h3>---Arisha Riley</h3>
+            <p>Vice President</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSpKoaQoW7A6TNRUgNKWDGDgNLrFzzBmwgT8DitdVo2lzP59auU1sRrKWE2mlqRJ0xU6o&usqp=CAU"
+            alt="Cfo"
+          />
+          <div class="card-content">
+            <h3>---Blaine Myers</h3>
+            <p>Chief Financial Officer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

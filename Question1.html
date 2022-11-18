@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ University Student Registration</title>
+</head>
+<style>
+    body{
+        background-color: rgb(232, 237, 223);
+    }
+
+    .container{
+        margin: auto;
+        margin-top: 50px;
+        width:900px;
+       }
+   
+       .heading{
+           border:2px solid black;
+           padding:5px;
+           letter-spacing:1px;
+           background-color: aquamarine;
+       }
+   
+      .style-in-text{
+       background: #f6f7b3;
+       box-shadow: 2px 3px 10px grey;
+       border: solid 1.5px #b07474;
+   }
+   
+   input[type="text"]{
+       height: 20px;
+       width:200px;
+     
+   }
+   
+   table{
+     font-size: 16px; 
+     border: 2px solid black;
+     width: 800px;
+   }
+   
+   td[rowspan]{
+       font-size: 20px;
+       font-weight: bold;
+   }
+   
+   #eng{
+       background-color: pink;
+   }
+   td{
+     border: 2px solid black;
+    }
+   
+   .mandatory:after {
+       content:" *";
+       color: red;
+     }
+
+     input[type="submit"]{
+        background-color: rgb(174, 234, 137);
+        padding:8px;
+        border-radius: 5px;
+        
+     }
+   
+   </style>
+   
+     <body>
+         
+        <form>
+ 
+            <table class="container" >
+            <th colspan="3"  class="heading">XYZ University Student Registration</th>
+             
+            <!----- First Name -->
+            <tr>
+            <td rowspan="4">Personal Details</td>
+            <td class="mandatory">First Name</td>
+            <td><input class="style-in-text" type="text" name="First Name" maxlength="10" required/>
+            </td>
+            </tr>
+             
+            <!----- Last Name -->
+            <tr>
+            <td class="mandatory ">Last Name</td>
+            <td><input class="style-in-text" type="text" name="Last Name" maxlength="10" required/>
+            </td>
+            </tr>
+             
+            <!----- Date Of Birth ---->
+            <tr>
+            <td class="mandatory">DATE OF BIRTH</td>
+            <td>
+             <input type="date" name="dob" id="dob" required />
+            </td>
+            </tr>
+             
+            <!----- Gender ----->
+            <tr>
+            <td>Gender</td>
+            <td>
+            <input type="radio" name="Gender" value="Male" checked />Male 
+             <input type="radio" name="Gender" value="Female" />Female
+             <input type="radio" name="Gender" value="Other" />Other
+            </td>
+            </tr>
+            
+            <!----- Degree---------->
+             <tr>
+             <td rowspan="4">Academic Details</td>
+             <td >Degree</td>
+             <td>
+              <select>
+              <option>Bachelors</option>
+              <option>Masters</option>
+              <option>Doctorate</option>
+              </select>
+              </td>
+              </tr>
+            <!-- Specialization -->
+            <tr>
+            <td class="mandatory">Specialization</td>
+            <td ><input type="text" name="specialization" value="English Literature" id="eng" maxlength="40" required/></td>
+            </tr>
+            <tr>
+            <td>Mode of instruction</td>
+            <td>
+            <input type="checkbox" name="classroom" value="class" checked/>Classroom
+            <input type="checkbox" name="online" value="online" />Online
+            </td>
+            </tr>
+            <!-- Current GPA -->
+            <tr>
+            <td class="mandatory">Current GPA</td>
+            <td><input type="number" min="1" max="5" step="0.1" name="GPA" value="gpa" required/></td>
+            </tr>
+             
+            <!----- Phone Number -------->
+            <tr>
+            <td rowspan="2">Contact Details</td>
+            <td class="mandatory">Phone Number</td>
+            <td>
+            <input class="style-in-text" type="text" name="Phone Number"  maxlength="10" required />
+            </td>
+            </tr>
+             
+            <!----- Address ------->
+            <tr>
+            <td class="mandatory">Address</td>
+            <td><textarea class="style-in-text" name="Address" rows="4" cols="40" required></textarea></td>
+            </tr>
+            <tr>
+            <td colspan="3" class="heading" align="center">I assure all the details entered are correct:  <input type="checkbox" name="affirm" checked/>  Yes </td>
+            </tr>
+            
+            <!----- Submit ------->
+            <tr >
+            <td  colspan="3" align="center">
+            <input type="submit" value="Submit">
+            </td>
+            </tr>
+            </table>   
+            </form>
+              </body>
+        

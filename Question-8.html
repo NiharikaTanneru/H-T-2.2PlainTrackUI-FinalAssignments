@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us Page</title>
+    <style>
+          * {
+      box-sizing: border-box; 
+         margin: 0;
+       padding:0;
+       }
+
+        .container{
+            background-color: aqua;
+            margin: auto;
+            margin-top: 10px;
+            width:900px;
+            height:680px;
+            padding:28px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .col-2{
+            display: flex;
+            margin-top:30px;
+            height: 480px;
+        }
+
+        .row-1{
+            width:60%;
+            background-color: white;
+            color: blue;
+            padding: 40px;
+           
+        }
+       
+        .row-1-heading{
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 50px;
+        }
+
+        .form-grp{
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .form-grp > label{
+            display:block;
+            margin-bottom: 8px;
+        }
+
+        .form-grp >input{
+            margin-bottom: 15px;
+            padding:8px; 
+            border: 0;
+            border-bottom: 1px solid rgb(19 19 176);    
+        }
+
+        .form-grp > button{
+            margin: 20px 10px;
+            background-color:rgb(19, 19, 176);
+            padding: 14px;
+            width:100px;
+            color:white;
+            border-radius: 180px;
+            border:0;
+            box-shadow: 2px 2px 3px black;
+        }
+
+         .row-2{
+            background-color: rgb(10, 10, 176);
+            width:45%;
+            color:white ;
+            padding:40px;
+         }
+
+         .row-2-heading{
+           margin-bottom:50px ;
+         }
+
+         .row-2 div{
+            margin-bottom: 15px;
+         }
+
+         .address{
+            display: flex;
+         }   
+
+         .add{
+            display: flex;
+            flex-direction: column;
+            padding:10px;
+         }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="col-1">
+            <h1>Connect With Us</h1>
+            <br>
+            <p>We would love to represent to your queries and help you succeed.</p>
+            <br>
+                <p> Feel free to get in touch with us. </p>     
+        </div>
+
+        <div class="col-2">
+              <div class="row-1">
+                    <p class="row-1-heading">Send your request</p>
+                    <form>
+                        
+                        <div class="form-grp">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="John Amenda">
+                        </div>
+                         
+                        <div class="form-grp">
+                            <label for="Phone">Phone</label>
+                            <input type="tel" name="phone" id="phone" placeholder="+1 412 520 3231">
+                        </div>
+
+                        <div  class="form-grp">
+                            <label for="">Email</label>
+                            
+                            <input type="email" name="email" id="email" placeholder="johnamendogm@gmail.com">
+                        </div>
+
+                        <div  class="form-grp">
+                            <label for="sub">Subject</label>
+                            
+                            <input type="text" name="subject" id="sub" placeholder="Product Demo">
+                        </div>
+  
+                        <div class="form-grp">
+                            <label for="">Message</label>
+                            <textarea name="" id="" cols="48" rows="5" placeholder="Your Message">    
+                            </textarea>
+                        </div>
+                      
+                        <div class="form-grp">
+                            <button type="submit">SEND</button>
+                        </div>
+                    </form>
+              </div>
+            <div class="row-2">
+                 <div class="row-2-heading">
+                    <h2>Reach Us</h2>
+                 </div>
+                <div>
+                Email &nbsp;&nbsp; &nbsp;&nbsp;contactus@example.com   
+                </div>
+                <div>
+                    Phone &nbsp;&nbsp; &nbsp;&nbsp;+1 012 345 6789 
+                </div>
+
+                <div class="address">
+                   <div style="margin-top:30px;">Address</div> 
+                <div class="add">
+                     <p>#212,Ground floor,7th cross</p>
+                     <p>Some Layout,Same Road</p>
+                     <p>Karamangia</p>
+                     <p>Bengaluru 560001</p>
+               </div>
+        </div>
+    </div>
+</body>
+</html>
