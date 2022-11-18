@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Data using Saas</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="main">
+        <form action="" id="user-form">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" />
+          </div>
+          <button type="submit" class="btn btn-success add-btn">Save</button>
+          <br /><br />
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="user-list">
+              <tr>
+                <td>Paresh</td>
+                <td>Paresh@gmail.com</td>
+                <td>
+                  <a href="#" class="btn btn-primary mr-1 edit">Edit</a>
+                  <a href="#" class="btn btn-danger delete">Delete</a>
+                </td>
+              </tr>
+              <tr>
+                <td>Hardik</td>
+                <td>Hardik@gmail.com</td>
+                <td>
+                  <a href="#" class="btn btn-primary mr-1 edit">Edit</a>
+                  <a href="#" class="btn btn-danger delete">Delete</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+    <script>
+      var selectedRow = null;
+      var showAlert=(message, className)=> {
+        const div = document.createElement("div");
+        div.className = `alert alert-${className}`;
+        div.appendChild(document.createTextNode(message));
+        const container = document.querySelector(".container");
+        const main = document.querySelector(".main");
+        container.insertBefore(div, main);
+        setTimeout(() => document.querySelector(".alert").remove(), 3000);
+      }
+      var clearFields=()=> {
+        document.querySelector("#name").value = "";
+        document.querySelector("#email").value = "";
+      }
+      document.querySelector("#user-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.querySelector("#name").value;
+        const email = document.querySelector("#email").value;
+        if (name == "" || email == "") {
+          showAlert("Please fill all the input elements", "danger");
+        } else {
+          if (selectedRow == null) {
+            const list = document.querySelector("#user-list");
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${name}</td>
+                <td>${email}</td>
+                <td>
+                    <a href="#" class="btn btn-primary mr-1 edit">Edit</a>
+                    <a href="#" class="btn btn-danger delete">Delete</a>
+                </td>`;
+            list.appendChild(row);
+            selectedRow = null;
+            showAlert("Record added successfully!!", "success");
+          } else {
+            selectedRow.children[0].textContent = name;
+            selectedRow.children[1].textContent = email;
+            selectedRow = null;
+            showAlert("Record Info Edited successfully!!", "info");
+            clearFields();
+          }
+        }
+      });
+      document.querySelector("#user-list").addEventListener("click", (e) => {
+        target = e.target;
+        if (target.classList.contains("edit")) {
+          selectedRow = target.parentElement.parentElement;
+          document.querySelector("#name").value =
+            selectedRow.children[0].textContent;
+          document.querySelector("#email").value =
+            selectedRow.children[1].textContent;
+        }
+      });
+      document.querySelector("#user-list").addEventListener("click", (e) => {
+        target = e.target;
+        if (target.classList.contains("delete")) {
+          target.parentElement.parentElement.remove();
+          showAlert("Record Deleted successfully!!", "danger");
+        }
+      });
+    </script>
+  </body>
+</html>
