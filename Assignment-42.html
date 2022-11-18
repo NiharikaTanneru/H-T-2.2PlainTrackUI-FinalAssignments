@@ -1,0 +1,47 @@
+<!-- *Write a JavaScript function checkDate() to check if a given date is in the correct format or not.  -->
+
+<!-- Correct date format: "MM-DD-YYYY" (for example: 03-18-2018)  -->
+
+<!-- If the date format is as above, the function should print true else it should print false.  -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment-with-locales.min.js"
+      integrity="sha512-vFABRuf5oGUaztndx4KoAEUVQnOvAIFs59y4tO0DILGWhQiFnFHiR+ZJfxLDyJlXgeut9Z07Svuvm+1Jv89w5g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checking Date Format</title>
+  </head>
+  <style>
+     #checkdate{
+      background-color: rgb(206, 159, 147);
+      color: white;
+      border: 10px double white;
+      border-radius: 20px;
+      width: 300px;
+      height: 100px;
+      padding: 60px 40px 30px 80px;
+      font-weight: 800;
+      font-size: 30px;
+      margin: auto;
+    }
+  </style>
+  <body>
+    <div id="checkdate"></div>
+    <script>
+      var checkDateformat = () => {
+        let checkdate = document.getElementById("checkdate");
+        let date = moment("03-18-2018", "MM-DD-YYYY");
+        checkdate.innerHTML += "03-18-2018 :  " + date.isValid() + "<br/>";
+        date = moment("19-12-1995", "MM-DD-YYYY");
+        checkdate.innerHTML += " 19-12-1995 : " + date.isValid();
+      };
+      checkDateformat();
+    </script>
+  </body>
+</html>

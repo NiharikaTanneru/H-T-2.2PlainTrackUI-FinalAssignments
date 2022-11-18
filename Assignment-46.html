@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drag and Drop</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      #firstdiv,
+      #seconddiv {
+        float: left;
+        width: 500px;
+        height: 340px;
+        margin: 2rem;
+        border: 3px solid black;
+      }
+      img {
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+        padding: 10px;
+      }
+    </style>
+    <script>
+      var allowDrop=(ev)=> {
+        ev.preventDefault();
+      }
+
+      var drag=(ev)=> {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+        var drop=(ev)=> {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Drag and Drop</h1>
+      <p>Drag cat between these two elements.</p>
+      <div id="firstdiv" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR40PS2MUhF_YdmA_2OUgHIAYqNsJ0LimP7Q&usqp=CAU"
+          draggable="true"
+          ondragstart="drag(event)"
+          id="drag1"
+        />
+      </div>
+      <div
+        id="seconddiv"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+    </div>
+  </body>
+</html>

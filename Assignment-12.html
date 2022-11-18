@@ -1,0 +1,128 @@
+<!-- Create the table using Delete functionality.
+  
+  Note: Use JavaScript Array Method and DOM API to implement this, Apply transition effect while deleting .  -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Table with Delete Functionality</title>
+    <link
+      rel="shortcut icon"
+      href="https://www.freeiconspng.com/thumbs/table-icon/table-icon-png-2.png"
+      type="image/x-icon"
+    />
+    <style>
+      body {
+        background-color: rgb(253, 255, 211);
+      }
+      table {
+        width: 40%;
+        margin: 80px auto;
+        border-collapse: collapse;
+      }
+
+      td,
+      th {
+        padding: 10px;
+        text-align: left;
+      }
+      th {
+        border-top: 2px solid #ccc;
+      }
+
+      tr {
+        border-bottom: 2px solid #ccc;
+      }
+
+      tr:hover {
+        padding: 15px;
+      }
+
+      .del button {
+        color: #fff;
+        cursor: pointer;
+        background: #b24444;
+        padding: 12px 15px;
+        width: 100px;
+        height: 40px;
+        border: none;
+        border-radius: 5px;
+        transition: width 2s, height 3s;
+      }
+
+      .del button:hover {
+        background-color: rgb(139, 127, 0);
+        width: 110px;
+        height: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="table"></div>
+    <script>
+      let headers = ["name", "gender", "city"];
+      let table = document.getElementById("table");
+      let name = document.getElementById("name");
+      let gender = document.getElementById("gender");
+      let city = document.getElementById("city");
+
+      function output(name, gender, city) {
+        this.name = name;
+        this.gender = gender;
+        this.city = city;
+      }
+      let tableData = [
+        new output("Satinder Singh", "Male", "Bombay"),
+
+        new output("Leslie Mac", "Female", "QueenLand"),
+
+        new output("Andrea ely", "Female", "Rio"),
+
+        new output("Amit Sarna", "Male", "Navi Mumbai"),
+
+        new output("David Miller", "Male", "Scouthe"),
+      ];
+
+      var TableStructure = () => {
+        if (document.getElementById("tableData")) {
+          document.getElementById("tableData").remove();
+        }
+        let tbl = document.createElement("table");
+        tbl.id = "tableData";
+        let row = document.createElement("tr");
+        row.innerHTML = `
+           
+			<th class="heading1">Name</th>
+			<th class="heading2">Gender</th>
+			<th class="heading3">City</th>
+			<th class="heading4">Action</th>
+         `;
+        tbl.appendChild(row);
+        for (j = 0; j < tableData.length; j++) {
+          let row = document.createElement("tr");
+          headers.forEach((header, index) => {
+            let Item = document.createElement("td");
+            Item.textContent = tableData[j][header];
+            Item.classList.add("table" + (index + 1));
+            row.appendChild(Item);
+          });
+          let ItemDelete = document.createElement("td");
+          ItemDelete.innerHTML = "<button>Delete</button>";
+          ItemDelete.classList.add("del");
+          ItemDelete.addEventListener("click", function () {
+            tableData.splice(j, 1);
+            ItemDelete.style.transition = "height 0.3s ease-out";
+            this.closest("tr").remove();  
+          });
+          row.appendChild(ItemDelete);
+          tbl.appendChild(row);
+          table.appendChild(tbl);
+        }
+      };
+      TableStructure();
+    </script>
+  </body>
+</html>

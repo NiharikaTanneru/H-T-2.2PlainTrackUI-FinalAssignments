@@ -1,0 +1,146 @@
+<!-- Code Pen using HTML,CSS,Js -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Code Pen</title>
+    <script
+      src="https://kit.fontawesome.com/15dc364de3.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        background-color: black;
+        padding: 0;
+        color: white;
+      }
+      .icons {
+        display: flex;
+        justify-content: space-around;
+      }
+      .editor #p-h,
+      #p-c,
+      #p-j {
+        background-color: #333;
+        width: 100px;
+        padding: 5px;
+        color: white;
+        border-radius: 5px;
+        display: inline-block;
+      }
+      .fa-solid,
+      .fa-sharp,
+      .fa-brackets-round {
+        color: black;
+        width: 10px;
+        height: 15px;
+        border-radius: 50%;
+      }
+      .fa-sharp {
+        border-radius: 30%;
+      }
+
+      .fa-brackets-round {
+        border-radius: 30%;
+        color: black;
+      }
+
+      .icons span {
+        display: inline-block;
+        margin-top: 5px;
+        padding: 1px;
+        width: 25px;
+      }
+      #html-code,
+      #css-code,
+      #js-code {
+        width: 450px;
+        height: 300px;
+        background: #333;
+        color: #fff;
+        margin-right: 6px;
+        display: inline-block;
+        border: 2px solid white;
+        border-radius: 6px;
+      }
+      iframe {
+        width: 500px;
+        height: 250px;
+        margin-left: 30%;
+      }
+
+      label {
+        margin: 43%;
+        color: white;
+        text-transform: uppercase;
+        text-decoration: underline;
+      }
+
+      button {
+        margin-left: 45%;
+        padding: 0.7rem;
+        width: 7rem;
+        border-radius: 0.5rem;
+        border: none;
+        background: rgb(193, 40, 40);
+        color: #fff;
+        margin-top: 2rem;
+        cursor: pointer;
+      }
+      strong {
+        text-decoration: underline;
+        letter-spacing: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="editor">
+      <div class="icons">
+        <p id="p-h">
+          <span><i class="fa-solid fa-pen"></i></span>&nbsp;&nbsp;&nbsp;
+          <strong> HTML</strong>
+        </p>
+        <p id="p-c">
+          <span><i class="fa-sharp fa-solid fa-gear"></i></span
+          >&nbsp;&nbsp;&nbsp; <strong>CSS</strong>
+        </p>
+        <p id="p-j">
+          <span><i class="fa-solid fa-brackets-round"></i></span
+          >&nbsp;&nbsp;&nbsp; <strong>JS</strong>
+        </p>
+      </div>
+      <div
+        id="html-code"
+        placeholder="HTML code here"
+        contenteditable="true"
+      ></div>
+      <div
+        id="css-code"
+        placeholder="CSS Code here"
+        contenteditable="true"
+      ></div>
+      <div id="js-code" placeholder="JS code here" contenteditable="true"></div>
+      <label>Final Output</label>
+      <br />
+      <br />
+      <iframe id="output"></iframe>
+      <button onclick="run()">Run</button>
+    </div>
+    <script type="text/javascript">
+      var run=()=> {
+        let htmlCode = document.querySelector(".editor #html-code").textContent;
+        let cssCode =
+          "<style>" +
+          document.querySelector(".editor #css-code").textContent +
+          "</style>";
+        let jsCode = document.querySelector(".editor #js-code").textContent;
+        let output = document.querySelector(".editor #output");
+        output.contentDocument.body.innerHTML = htmlCode + cssCode;
+        output.contentWindow.eval(jsCode);
+      }
+    </script>
+  </body>
+</html>

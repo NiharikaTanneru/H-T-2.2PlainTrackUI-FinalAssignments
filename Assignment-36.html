@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie Tickets Booking</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="https://toppng.com/uploads/preview/movie-projector-icon-free-download-png-and-film-projector-icon-115632708013cuzve0m6t.png"
+      type="image/x-icon"
+    />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 100px;
+        font-family: "Times New Roman", Times, serif;
+        background-color: rgb(211, 250, 237);
+      }
+
+      #title {
+        margin-top: 40px;
+        margin-left: 10px;
+        width: 400px;
+        border: 1px solid #7dafec;
+        text-align: center;
+        color: #08438e;
+        background-color: #aac4e3;
+        font-size: 20;
+        padding: 15px;
+      }
+
+      #content {
+        height: 120px;
+        width: 400px;
+        text-align: left;
+        border: 1px solid #7dafec;
+        color: #08438e;
+        font-size: 20;
+        padding: 15px;
+        margin-left: 10px;
+      }
+
+      #booking {
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="movie-container">
+      <div id="title">
+        <h2 id="booking">Booking Summary</h2>
+      </div>
+      <div id="content">
+        <input type="number" id="noOfSeats" value="1" />
+        <button id="book" onclick="calculateCost(seats)">Book</button>
+        <p id="cost"></p>
+        <p id="total"></p>
+        <p id="message"></p>
+        <p id="discount"></p>
+      </div>
+    </div>
+    <script>
+      var seats = document.getElementById("noOfSeats").value;
+      let calculateCost = (seats) => {
+        var seats = document.getElementById("noOfSeats").value;
+        if (seats <= 2) {
+          document.getElementById("message").innerHTML =
+            "No Discount Applied for " + seats + " seats";
+          document.getElementById("cost").innerHTML = "Cost per ticket is : $9";
+          document.getElementById("total").innerHTML =
+            "Total Cost: $" + 9 * seats;
+        } else if (seats >= 6) {
+          document.getElementById("message").innerHTML =
+            "Booking Not Allowed for 6 seats and more";
+          document.getElementById("cost").innerHTML = "";
+          document.getElementById("total").innerHTML = "";
+        } else if (seats > 2 && seats < 6) {
+          document.getElementById("cost").innerHTML = "Cost per ticket is : $9";
+          document.getElementById("total").innerHTML =
+            "Total Cost: $" + 9 * seats;
+          document.getElementById(
+            "message"
+          ).innerHTML = `Congratulations! ${seats}  seats are eligible for discount <a href="#" onclick="calculateDiscount(seats)">Apply</a>`;
+        }
+      };
+
+      let calculateDiscount = (seats) => {
+        event.preventDefault();
+        var seats = document.getElementById("noOfSeats").value;
+        var discount = 0;
+        switch (seats) {
+          case "3":
+            discount = 5;
+            break;
+          case "4":
+            discount = 7;
+            break;
+          case "5":
+            discount = 9;
+            break;
+          default:
+            discount = 0;
+        }
+        var amnt;
+        var price = 9 * seats;
+        amnt = price - price * (discount / 100);
+        var finalprice = Math.round(amnt);
+        alert("Amount Payable after discount is: $" + finalprice);
+      };
+    </script>
+  </body>
+</html>

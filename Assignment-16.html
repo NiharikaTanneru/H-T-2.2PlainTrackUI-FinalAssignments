@@ -1,0 +1,165 @@
+<!-- Image Slider -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="https://static.thenounproject.com/png/138712-200.png"
+      type="image/x-icon"
+    />
+    <title>Slideshow Images</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        margin: 0;
+        background-color: rgb(214, 242, 192);
+      }
+
+      .mySlides {
+        display: none;
+        height: 50vh;
+        margin: 50px auto;
+        width: 700px;
+      }
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      @-webkit-keyframes fade {
+        from {
+          opacity: 0.3;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fade {
+        from {
+          opacity: 0.2;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slideshow-container"></div>
+    <br />
+
+    <script>
+      let arr = [
+        {
+          imgSrc:
+            "https://tse3.mm.bing.net/th?id=OIP.GHpkEPaeHRNwzs7nDgAoygHaDJ&pid=Api&P=0",
+          id: 1,
+          title: "Animals",
+        },
+        {
+          imgSrc:
+            "https://tse2.mm.bing.net/th?id=OIP.RinyMRzFjnogBwIiqw1NJwHaDN&pid=Api&P=0",
+          id: 2,
+          title: "Road way",
+        },
+        {
+          imgSrc:
+            "http://smartslider3.com/wp-content/uploads/slider101/parallax-slider1.jpg",
+          id: 3,
+          title: " Beautiful Mountain",
+        },
+
+        {
+          imgSrc:
+            "https://tse1.mm.bing.net/th?id=OIP.Aa3M01niVsjkaV_2eHpJUAHaDP&pid=Api&P=0",
+          id: 4,
+          title: "Child Playing with dog",
+        },
+
+        {
+          imgSrc:
+            "https://tse4.mm.bing.net/th?id=OIP.dBGF1VdvlDpxHX7S9EjBqQHaCU&pid=Api&P=0",
+          id: 5,
+          title: "Desert",
+        },
+
+        {
+          imgSrc:
+            "https://tse2.mm.bing.net/th?id=OIP.zuwwxopJ9dMM3Awwtnw30QHaDH&pid=Api&P=0",
+          id: 6,
+          title: "Simplicity",
+        },
+        {
+          imgSrc:
+            "https://tse2.mm.bing.net/th?id=OIP.YHCONYUB8L_bY93uZbv0EQHaCU&pid=Api&P=0",
+          id: 7,
+          title: "Lake",
+        },
+        {
+          imgSrc:
+            "https://tse2.mm.bing.net/th?id=OIP.wzrWOm9z45-4jXV_-PDqvQHaC8&pid=Api&P=0",
+          id: 8,
+          title: "New York City",
+        },
+        {
+          imgSrc:
+            "https://tse1.mm.bing.net/th?id=OIP.rMyvdNSZ1QcHjobBe0EQGAHaC4&pid=Api&P=0",
+          id: 9,
+          title: "Melbourne City",
+        },
+        {
+          imgSrc:
+            "https://tse1.mm.bing.net/th?id=OIP.iqktWgScfesItffM4NcougHaCU&pid=Api&P=0",
+          id: 10,
+          title: "Snowy Mountains",
+        },
+      ];
+      const slides = document.getElementsByClassName("mySlides");
+      var images = "";
+      arr.map((ele) => {
+        images += `<div class="mySlides fade" style="margin-top:150px; border: 5px double black;border-radius: 5px"><img src='${ele.imgSrc}'alt=""/><p>Image-No: ${ele.id} ${ele.title}  </p></div>`;
+      });
+      document.querySelector(".slideshow-container").innerHTML = images;
+
+      let slideIndex = 0;
+      let timeoutId = null;
+
+      showSlides();
+
+      function showSlides() {
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = "block";
+
+        if (timeoutId) {
+          clearTimeout(timeoutId);
+        }
+        timeoutId = setTimeout(showSlides, 1500);
+      }
+    </script>
+  </body>
+</html>
