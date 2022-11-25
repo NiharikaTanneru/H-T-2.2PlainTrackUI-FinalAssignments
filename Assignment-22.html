@@ -256,6 +256,7 @@
       let searchOfEmployee = (id) => {
         event.preventDefault();
         var id = document.getElementById("enumber").value;
+	index = empArr.findIndex((ele) => ele.id == id);
         console.log("id: " + id);
         console.log("searched index: " + index);
         if (index >= 0) {
